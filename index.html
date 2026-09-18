@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion client</title>
+</head>
+
+<style>
+    .filazana_tsotra,
+    .spot,
+    .anelanelany,
+    .tolotrasa,
+    .sakaiza,
+    .hafatra,
+    .mpanakantontsika,
+    .mpanakanto_ranoray {
+        display: none;
+    }
+</style>
+
+<body>
+    <form id="formulaire">
+        <label for="nom_client">Anarana</label>
+        <input type="text" name="nom_client" id="nom_client"><br><br>
+
+        <label for="adresse">Adresse</label>
+        <input type="text" name="adresse" id="adresse"><br><br>
+
+        <label for="telephone">Telephone</label>
+        <input type="text" name="telephone" id="telephone"><br><br>
+
+
+
+        <label for="tolotra">Tolotra</label>
+        <select name="tolotra" id="tolotra">
+            <option value="">---</option>
+            <option value="filazana_tsotra">Filazana tsotra</option>
+            <option value="spot">Spot</option>
+            <option value="anelanelany">Anelanelany</option>
+            <option value="tolotrasa">Tolotr'asa</option>
+            <option value="sakaiza">Sakaizan'ny mpanakanto</option>
+            <option value="hafatra">Hafatra an-kira</option>
+            <option value="mpanakantontsika">Mpanakantontsika</option>
+            <option value="mpanakanto_ranoray">Mpanakanto Ranoray</option>
+        </select><br><br>
+
+        <div class="filazana_tsotra">
+            <label for="fidirambola">Misy fidiram-bola</label>
+            <input type="checkbox" name="fidirambola" id="fidirambola"><br><br>
+
+            <label for="debut_filazana">Manomboka ny</label>
+            <input type="date" name="debut_filazana" id="date_debut_filazana"><br><br>
+
+            <label for="fin_filazana">Mifarana ny</label>
+            <input type="date" name="fin_filazana" id="date_fin_filazana"><br><br>
+
+            <div id="lignes_filazana"></div>
+        </div>
+
+        <div class="spot">
+            <label for="fidirambola_spot">Misy fidiram-bola</label>
+            <input type="checkbox" id="fidirambola_spot"><br><br>
+
+            <label for="date_debut_spot">Manomboka ny</label>
+            <input type="date" name="debut_spot" id="date_debut_spot"><br><br>
+
+            <label for="date_fin_spot">Mifarana ny</label>
+            <input type="date" name="fin_spot" id="date_fin_spot"><br><br>
+
+            <div id="lignes_spot"></div>
+        </div>
+
+        <div class="anelanelany">
+            <label for="fidirambola_anelanelany">Misy fidiram-bola</label>
+            <input type="checkbox" id="fidirambola_anelanelany"><br><br>
+
+            <label for="date_debut_anelanelany">Manomboka ny</label>
+            <input type="date" name="debut_anelanelany" id="date_debut_anelanelany"><br><br>
+
+            <label for="date_fin_anelanelany">Mifarana ny</label>
+            <input type="date" name="fin_anelanelany" id="date_fin_anelanelany"><br><br>
+
+            <div id="lignes_anelanelany"></div>
+        </div>
+
+        <div class="tolotrasa">
+            <button type="button" id="mois_precedent_tolotrasa">&lt;</button>
+            <span id="mois_affiche_tolotrasa"></span>
+            <button type="button" id="mois_suivant_tolotrasa">&gt;</button>
+
+            <div id="grille_tolotrasa"></div>
+        </div>
+
+        <div class="sakaiza">
+            <div id="semaines_sakaiza"></div>
+            <button type="button" id="ajouter_semaine_sakaiza">+ Ajouter une semaine</button>
+        </div>
+
+        <div class="hafatra">
+            <div id="chansons_hafatra"></div>
+            <button type="button" id="ajouter_chanson_hafatra">+ Ajouter une chanson</button>
+        </div>
+
+        <div class="mpanakantontsika">
+            <!-- Choix de samedi a reserver -->
+            <label for="samedi_mpanakantontsika">Ny</label>
+            <input type="date" name="samedi_mpanakantontsika" id="samedi_mpanakantontsika">
+        </div>
+
+        <div class="mpanakanto_ranoray">
+            <!-- Dimanche a reserver -->
+            <label for="dimanche_mpanakanato_ranoray">Ny</label>
+            <input type="date" name="dimanche_mpanakanato_ranoray" id="dimanche_mpanakanato_ranoray">
+        </div>
+
+        <h1>Montant: <span>0 Ar</span></h1>
+
+        <button id="bouton_recu">Afficher la recu</button>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
