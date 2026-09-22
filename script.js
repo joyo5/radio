@@ -425,3 +425,60 @@ function calculerMontantHafatra() {
 
 ajouterChansonHafatra.addEventListener('click', creerBlocChansonHafatra);
 creerBlocChansonHafatra();
+
+const heuresMpanakantontsika = document.getElementById('heures_mpanakantontsika');
+const ajouterHeureMpanakantontsika = document.getElementById('ajouter_heure_mpanakantontsika');
+
+function ajouterLigneMpanakantontsika() {
+    const ligne = document.createElement('div');
+    ligne.innerHTML = `
+        <input type="date" class="date_mpanakantontsika">
+        <select class="heure_mpanakantontsika">
+            <option value="9h30">9h30</option>
+            <option value="9h45">9h45</option>
+            <option value="10h30">10h30</option>
+            <option value="10h45">10h45</option>
+        </select>
+    `;
+    heuresMpanakantontsika.appendChild(ligne);
+
+    const inputDate = ligne.querySelector('.date_mpanakantontsika');
+    inputDate.addEventListener('change', () => {
+        const date = new Date(inputDate.value);
+        if (date.getDay() !== 6) { // 6 = samedi
+            alert("Ny sabotsy ihany no azo isafidianana");
+            inputDate.value = '';
+        }
+        calculerMontantMpanakantontsika();
+    });
+
+    calculerMontantMpanakantontsika();
+}
+
+function calculerMontantMpanakantontsika() {
+    const lignesRemplies = heuresMpanakantontsika.querySelectorAll('.date_mpanakantontsika');
+    let nbLignesValides = 0;
+    lignesRemplies.forEach(input => {
+        if (input.value) nbLignesValides++;
+    });
+
+    const montant = nbLignesValides * 20000;
+    document.querySelector('h1 span').textContent = montant + ' Ar';
+}
+
+ajouterHeureMpanakantontsika.addEventListener('click', ajouterLigneMpanakantontsika);
+ajouterLigneMpanakantontsika();
+
+const dateRanoray = document.getElementById('date_ranoray');
+
+dateRanoray.addEventListener('change', () => {
+    const date = new Date(dateRanoray.value);
+    if (date.getDay() !== 0) { // 0 = dimanche
+        alert("Ny alahady ihany no azo isafidianana");
+        dateRanoray.value = '';
+        document.querySelector('h1 span').textContent = '0 Ar';
+        return;
+    }
+
+    document.querySelector('h1 span').textContent = '10000 Ar';
+});
